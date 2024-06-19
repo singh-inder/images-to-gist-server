@@ -1,0 +1,46 @@
+{
+  "writerOpts": {
+    "commitsSort": false
+  },
+  "skip": {
+    "bump": true
+  },
+  "scripts": {
+    "precommit": "git add package*.json",
+    "postchangelog": "prettier --write CHANGELOG.md"
+  },
+  "types": [
+    {
+      "type": "refactor",
+      "section": "Refactor"
+    },
+    {
+      "type": "feat",
+      "section": "Features"
+    },
+    {
+      "type": "fix",
+      "section": "Bug Fixes"
+    },
+    {
+      "type": "docs",
+      "section": "Docs"
+    },
+    {
+      "type": "chore",
+      "hidden": true
+    },
+    {
+      "type": "style",
+      "hidden": true
+    },
+    {
+      "type": "perf",
+      "hidden": false
+    },
+    {
+      "type": "test",
+      "hidden": false
+    }
+  ]
+}
