@@ -1,5 +1,3 @@
-TODO: add email in package.json
+# Images from Gist server
 
-TODO: Add docs for this server.
-
-TODO: Add links to yt video
+To be used alongside [obsidian-images-from-gist](https://github.com/singh-inder/obsidian-images-from-gist)

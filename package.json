@@ -1,19 +1,23 @@
 {
   "name": "images-from-gist-server",
   "version": "0.1.0",
-  "description": "",
+  "description": "server decodes base64 strings and pipe images to client",
   "author": {
     "name": "Inder Singh",
-    "email": "",
+    "email": "indersingh.dev@outlook.com",
     "url": "https://github.com/singh-inder"
   },
   "repository": "https://github.com/singh-inder/images-from-gist-server",
   "type": "module",
   "scripts": {
     "dev": "tsx watch --clear-screen=false server.ts",
+    "build": "tsc",
     "release": "commit-and-tag-version -a"
   },
-  "keywords": [],
+  "keywords": [
+    "github",
+    "gist"
+  ],
   "license": "MIT",
   "dependencies": {
     "base64-stream": "^1.0.0",
@@ -30,7 +34,7 @@
     "@types/node": "^20.14.9",
     "commit-and-tag-version": "^12.4.1",
     "prettier": "^3.3.2",
-    "tsx": "^4.15.7",
-    "typescript": "^5.5.2"
+    "tsx": "^4.16.2",
+    "typescript": "^5.5.3"
   }
 }
