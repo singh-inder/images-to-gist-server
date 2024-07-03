@@ -7,8 +7,10 @@ import parseUrl from "parse-url";
 import createHttpError, { isHttpError } from "http-errors";
 import got from "got";
 import { Base64Decode } from "base64-stream";
+import sharp from "sharp";
 
 import hosts from "./lib/hosts.js";
+import { convertToInt } from "./lib/utils.js";
 
 const app = express();
 
@@ -16,29 +18,34 @@ app.use(helmet({ crossOriginResourcePolicy: { policy: "cross-origin" } }));
 
 const WEEK_IN_SECONDS = 60 * 60 * 24 * 7;
 
+const invalidUrl = () => createHttpError(400, "Invalid Url");
+
 app.get("/", async (req, res, next) => {
   try {
     const url = req.query.url;
 
-    if (typeof url !== "string") return next(createHttpError(400, "No Url provided"));
+    if (typeof url !== "string") return next(invalidUrl());
 
     const parsedUrl = parseUrl(url, true);
 
-    if (parsedUrl.parse_failed) return next(createHttpError(400, "Invalid url"));
+    if (parsedUrl.parse_failed) return next(invalidUrl());
 
-    if (!hosts.includes(parsedUrl.host))
-      return next(createHttpError(400, "Invalid url"));
+    if (!hosts.includes(parsedUrl.host)) return next(invalidUrl());
 
     const mimeType = path.basename(url).split(".").pop() || "jpeg";
 
     res.setHeader("Content-type", `image/${mimeType}`);
     res.setHeader("Cache-Control", `private, max-age=${WEEK_IN_SECONDS}`);
 
-    await pipeline(
-      got.stream(`https://${parsedUrl.host}${parsedUrl.pathname}`),
-      new Base64Decode(),
-      res
-    );
+    const width = convertToInt(req.query.w);
+    const height = convertToInt(req.query.h);
+
+    const decoder = new Base64Decode();
+    const data = got.stream(`https://${parsedUrl.host}${parsedUrl.pathname}`);
+
+    await (width || height
+      ? pipeline(data, decoder, sharp().resize({ width, height }), res)
+      : pipeline(data, decoder, res));
   } catch (error) {
     next(error);
   }
@@ -46,7 +53,7 @@ app.get("/", async (req, res, next) => {
 
 app.use(((err, req, res, next) => {
   if (isHttpError(err)) {
-    res.status(err.status).json({ message: err.message });
+    res.status(err.status).send(err.message);
   } else {
     res.sendStatus(500);
   }

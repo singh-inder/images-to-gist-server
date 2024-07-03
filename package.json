@@ -26,7 +26,8 @@
     "got": "^14.4.1",
     "helmet": "^7.1.0",
     "http-errors": "^2.0.0",
-    "parse-url": "^9.2.0"
+    "parse-url": "^9.2.0",
+    "sharp": "^0.33.4"
   },
   "devDependencies": {
     "@types/base64-stream": "^1.0.5",
