@@ -1,5 +1,5 @@
 {
-  "name": "images-from-gist-server",
+  "name": "images-to-gist-server",
   "version": "0.1.0",
   "description": "server decodes base64 strings and pipe images to client",
   "author": {
@@ -7,7 +7,7 @@
     "email": "indersingh.dev@outlook.com",
     "url": "https://github.com/singh-inder"
   },
-  "repository": "https://github.com/singh-inder/images-from-gist-server",
+  "repository": "https://github.com/singh-inder/images-to-gist-server",
   "type": "module",
   "scripts": {
     "dev": "tsx watch --clear-screen=false server.ts",
