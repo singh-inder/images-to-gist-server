@@ -5,7 +5,7 @@ import { pipeline } from "node:stream/promises";
 import helmet from "helmet";
 import parseUrl from "parse-url";
 import createHttpError, { isHttpError } from "http-errors";
-import got from "got";
+import got, { HTTPError as GotHttpError } from "got";
 import { Base64Decode } from "base64-stream";
 import sharp from "sharp";
 
@@ -18,7 +18,7 @@ app.use(helmet({ crossOriginResourcePolicy: { policy: "cross-origin" } }));
 
 const WEEK_IN_SECONDS = 60 * 60 * 24 * 7;
 
-const invalidUrl = () => createHttpError(400, "Invalid Url");
+const invalidUrl = (msg = "Invalid Url") => createHttpError(400, msg);
 
 app.get("/", async (req, res, next) => {
   try {
@@ -30,7 +30,7 @@ app.get("/", async (req, res, next) => {
 
     if (parsedUrl.parse_failed) return next(invalidUrl());
 
-    if (!hosts.includes(parsedUrl.host)) return next(invalidUrl());
+    if (!hosts.includes(parsedUrl.host)) return next(invalidUrl("Invalid host"));
 
     const mimeType = path.basename(url).split(".").pop() || "jpeg";
 
@@ -47,6 +47,10 @@ app.get("/", async (req, res, next) => {
       ? pipeline(data, decoder, sharp().resize({ width, height }), res)
       : pipeline(data, decoder, res));
   } catch (error) {
+    if (error instanceof GotHttpError) {
+      return next(createHttpError(Number(error.code || 500), error.message));
+    }
+
     next(error);
   }
 });
