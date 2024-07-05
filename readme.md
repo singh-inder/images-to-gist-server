@@ -23,6 +23,26 @@ Whichever method you use to run the server locally, make sure to update the imag
 
 ![](images/settings.jpg)
 
+## Deploying to Production
+
+Utilize Docker Compose to manage and run containers on your production server.
+
+[Caddy](https://caddyserver.com) serves as the reverse proxy in the production environment.
+
+⭐ In a production environment, it is essential to set the following environment variables for Caddy:
+
+Create a `.env` file in the project root directory with the following values:
+
+```sh
+# The domain name that the Caddy server should listen to (e.g., images.com).
+DOMAIN=
+
+# The email address to be registered with Let's Encrypt for obtaining SSL certificates.
+CERT_EMAIL=
+```
+
+Make sure to update the image server url inside [images-to-gist](https://github.com/singh-inder/obsidian-images-to-gist) plugin settings
+
 ## Support
 
 If you'd like to help cover the costs of hosting the image server or fuel my late-night coding sessions with more coffee:

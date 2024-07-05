@@ -5,3 +5,6 @@ export const convertToInt = (val: any) => {
 
   return undefined;
 };
+
+/** allowed hosts */
+export const hosts = ["githubusercontent", "github"].map(val => `gist.${val}.com`);

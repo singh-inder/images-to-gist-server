@@ -9,8 +9,7 @@ import got, { HTTPError as GotHttpError } from "got";
 import { Base64Decode } from "base64-stream";
 import sharp from "sharp";
 
-import hosts from "./lib/hosts.js";
-import { convertToInt } from "./lib/utils.js";
+import { convertToInt, hosts } from "./lib/utils.js";
 
 const app = express();
 

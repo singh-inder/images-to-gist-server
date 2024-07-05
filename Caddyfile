@@ -1,0 +1,51 @@
+{
+	email {$CERT_EMAIL}
+	# https://github.com/mholt/caddy-ratelimit?tab=readme-ov-file#caddyfile-config
+	order rate_limit before basicauth
+
+	log {
+		level ERROR
+	}
+}
+
+# https://caddyserver.com/docs/caddyfile/concepts#snippets
+(common) {
+	rate_limit {
+		zone myzone {
+			key {remote_ip}
+			# 30 requests/min
+			events 30
+			window 1m
+		}
+	}
+
+	# have to use rewrite directive as reverse proxy upstream paths cannot contain query params 
+	# @see https://caddyserver.com/docs/caddyfile/directives/reverse_proxy#upstream-addresses
+
+	# https://caddyserver.com/docs/caddyfile/directives/rewrite#examples
+	rewrite * {uri}
+
+	reverse_proxy {
+		# node-server services defined inside docker-compose.yaml
+		to node-server-1:5000 node-server-2:5000
+
+		# https://caddyserver.com/docs/caddyfile/directives/reverse_proxy#load-balancing
+		lb_policy round_robin
+
+		lb_try_duration 1s
+	}
+
+	# https://caddyserver.com/docs/caddyfile/directives/handle_errors#examples
+	handle_errors 429 {
+		respond "You're being rate limited. Please try again in 1 minute."
+	}
+}
+
+# localhost:80 only uncomment if you want to run caddy locally
+# localhost {
+# 	import common
+# }
+
+{$DOMAIN} {
+	import common
+}

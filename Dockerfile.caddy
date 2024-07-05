@@ -1,0 +1,10 @@
+# https://caddyserver.com/docs/build#docker
+
+FROM caddy:2.8.4-builder as builder
+
+RUN xcaddy build \
+    --with github.com/mholt/caddy-ratelimit
+
+FROM caddy:2.8.4
+
+COPY --from=builder /usr/bin/caddy /usr/bin/caddy
