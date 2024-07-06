@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.1.0](https://github.com/singh-inder/images-to-gist-server/compare/v1.0.0...v1.1.0) (2024-07-06)
+
+### Bug Fixes
+
+- **publish-image.yaml:** update workflow ([72ae264](https://github.com/singh-inder/images-to-gist-server/commit/72ae2645ef34b7f505f2fea268e13e613a7d7668))
+
 ## [1.0.0](https://github.com/singh-inder/images-to-gist-server/compare/v0.1.0...v1.0.0) (2024-07-06)
 
 ### Features

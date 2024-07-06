@@ -1,6 +1,6 @@
 {
   "name": "images-to-gist-server",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "server decodes base64 strings and pipe images to client",
   "author": {
     "name": "Inder Singh",
