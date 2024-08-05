@@ -25,8 +25,9 @@ Whichever method you use to run the server locally, make sure to update the imag
 
 ## Deploying to Production
 
-1. [Caddy](https://caddyserver.com) serves as the reverse proxy in the production environment. You'll need to pass the following environment variables for Caddy:
-   Create a `.env` file in the project root directory with the following values:
+1. [Caddy](https://caddyserver.com) serves as the reverse proxy in the production environment.
+
+   The following environment variables are required for Caddy:
 
    ```sh
    # The domain name that the Caddy server should listen to (e.g., images.com). same as nginx server_name

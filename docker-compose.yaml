@@ -6,7 +6,6 @@ services:
       dockerfile: Dockerfile.caddy
     container_name: caddy
     restart: unless-stopped
-    env_file: .env
     environment:
       - DOMAIN=$DOMAIN
       - CERT_EMAIL=$CERT_EMAIL
