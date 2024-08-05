@@ -1,6 +1,6 @@
 {
   "name": "images-to-gist-server",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "server decodes base64 strings and pipe images to client",
   "author": {
     "name": "Inder Singh",
@@ -12,7 +12,8 @@
   "scripts": {
     "dev": "tsx watch --clear-screen=false server.ts",
     "build": "tsc",
-    "release": "commit-and-tag-version -a"
+    "release": "commit-and-tag-version -a",
+    "release:push": "npm run release && git push --follow-tags origin main"
   },
   "keywords": [
     "github",

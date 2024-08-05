@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.2.0](https://github.com/singh-inder/images-to-gist-server/compare/v1.1.0...v1.2.0) (2024-08-05)
+
+### Features
+
+- **Dockerfile.nodeserver:** use node:22.4.1-bullseye-slim image ([70a709f](https://github.com/singh-inder/images-to-gist-server/commit/70a709f579be57b4b54412d0c201ea62eb496ffe))
+- **docker-compose.yaml:** remove env_file directive ([7012ab4](https://github.com/singh-inder/images-to-gist-server/commit/7012ab4c87e23d7ffcab92caababdf16cde15548))
+
+### Docs
+
+- update readme ([39dc49b](https://github.com/singh-inder/images-to-gist-server/commit/39dc49b9c64fd1ee3e21669958a204959e31c340))
+
 ## [1.1.0](https://github.com/singh-inder/images-to-gist-server/compare/v1.0.0...v1.1.0) (2024-07-06)
 
 ### Bug Fixes
