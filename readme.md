@@ -31,7 +31,8 @@ Whichever method you use to run the server locally, make sure to update the imag
 
    ```sh
    # The domain name that the Caddy server should listen to (e.g., images.com). same as nginx server_name
-   DOMAIN=
+   # Defaults to http://localhost
+   DOMAIN=example.com
 
    # The email address to be registered with Let's Encrypt for obtaining SSL certificates.
    CERT_EMAIL=
