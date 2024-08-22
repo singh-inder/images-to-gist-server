@@ -7,8 +7,9 @@ services:
     container_name: caddy
     restart: unless-stopped
     environment:
-      - DOMAIN=$DOMAIN
+      - DOMAIN=${DOMAIN:-http://localhost:80}
       - CERT_EMAIL=$CERT_EMAIL
+      - UPSTREAMS=node-server-1:5000 node-server-2:5000
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile
       - ./caddy_data:/data
