@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.3.0](https://github.com/singh-inder/images-to-gist-server/compare/v1.2.0...v1.3.0) (2024-08-22)
+
+### Features
+
+- set default DOMAIN to localhost:80 in env var ([dd55d34](https://github.com/singh-inder/images-to-gist-server/commit/dd55d34ca6306bc825260b95f26eb91a2bbbe3f4))
+
 ## [1.2.0](https://github.com/singh-inder/images-to-gist-server/compare/v1.1.0...v1.2.0) (2024-08-05)
 
 ### Features
