@@ -1,3 +1,7 @@
 node_modules
 .env
 dist
+caddy_config
+caddy_data
+images
+.git
