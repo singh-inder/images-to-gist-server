@@ -9,7 +9,7 @@ services:
     environment:
       - DOMAIN=${DOMAIN:-http://localhost:80}
       - CERT_EMAIL=$CERT_EMAIL
-      - UPSTREAMS=node-server-1:5000 node-server-2:5000
+      - UPSTREAMS=go-server-1:5000 go-server-2:5000
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile
       - ./caddy_data:/data
@@ -18,20 +18,20 @@ services:
       - 80:80
       - 443:443
 
-  node-server-1:
+  go-server-1:
     build:
       context: .
-      dockerfile: Dockerfile.nodeserver
+      dockerfile: Dockerfile.goserver
     restart: unless-stopped
-    container_name: node-server-1
+    container_name: go-server-1
     environment:
       - PORT=5000
 
-  node-server-2:
+  go-server-2:
     build:
       context: .
-      dockerfile: Dockerfile.nodeserver
+      dockerfile: Dockerfile.goserver
     restart: unless-stopped
-    container_name: node-server-2
+    container_name: go-server-1
     environment:
       - PORT=5000

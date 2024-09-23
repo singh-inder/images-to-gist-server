@@ -1,0 +1,8 @@
+version: "3"
+
+tasks:
+  dev:
+    dotenv: [".env"]
+    desc: "Run dev server"
+    cmds:
+      - PORT=$PORT nodemon --exec go run main.go --signal SIGKILL --watch './**/*.go'
