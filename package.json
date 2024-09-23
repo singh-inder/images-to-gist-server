@@ -1,11 +1,11 @@
 {
   "name": "images-to-gist-server",
-  "version": "1.3.0",
+  "version": "2.0.0",
   "description": "server decodes base64 strings and pipe images to client",
   "author": {
     "name": "Inder Singh",
     "email": "indersingh.dev@outlook.com",
-    "url": "https://github.com/singh-inder"
+    "url": "https://singhinder.com"
   },
   "repository": "https://github.com/singh-inder/images-to-gist-server",
   "type": "module",
@@ -18,8 +18,8 @@
     "gist"
   ],
   "license": "MIT",
-  "dependencies": {},
   "devDependencies": {
-    "commit-and-tag-version": "^12.4.1"
+    "commit-and-tag-version": "^12.4.4",
+    "prettier": "^3.3.3"
   }
 }

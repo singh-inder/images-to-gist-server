@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.0.0](https://github.com/singh-inder/images-to-gist-server/compare/v1.3.0...v2.0.0) (2024-09-23)
+
+### ⚠ BREAKING CHANGES
+
+- - migrate to golang
+
+* drop support for resizing
+
+- migrate to golang
+
+- Merge branch 'migrate-go' ([3a6f449](https://github.com/singh-inder/images-to-gist-server/commit/3a6f449dfaf32a9006c4f53f74170488a3232651))
+
+### Features
+
+- **.github:** update publish-img workflow ([993371b](https://github.com/singh-inder/images-to-gist-server/commit/993371b6544ed8a2fa4c5df7103a859f60d9c713))
+- add Dockerfile.goserver ([85486c5](https://github.com/singh-inder/images-to-gist-server/commit/85486c5b651e46e525455a4312298d6b9cf90ce2))
+- add golang fiber ([b98eb08](https://github.com/singh-inder/images-to-gist-server/commit/b98eb0849752461f77ea4b31b1bdb4a4d078ee7f))
+
+### Bug Fixes
+
+- **handlers:** check response status ([8464997](https://github.com/singh-inder/images-to-gist-server/commit/8464997a1207e6694b0ef5c90366373af6280597))
+
+### Docs
+
+- update readme ([a89837f](https://github.com/singh-inder/images-to-gist-server/commit/a89837f075cc846eae5cdc9ea5212e932b7e0426))
+
 ## [1.3.0](https://github.com/singh-inder/images-to-gist-server/compare/v1.2.0...v1.3.0) (2024-08-22)
 
 ### Features
