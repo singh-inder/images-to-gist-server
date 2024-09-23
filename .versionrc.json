@@ -2,10 +2,8 @@
   "writerOpts": {
     "commitsSort": false
   },
-  "skip": {
-    "bump": true
-  },
   "scripts": {
+    "prebump": "npm pkg get version",
     "precommit": "git add package*.json",
     "postchangelog": "prettier --write CHANGELOG.md"
   },
