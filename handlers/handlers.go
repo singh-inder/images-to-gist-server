@@ -2,7 +2,6 @@ package handlers
 
 import (
 	"encoding/base64"
-	"fmt"
 	"io"
 	"net/http"
 	"net/url"
@@ -24,42 +23,43 @@ func isHostnameAllowed(hostname string) bool {
 	return false
 }
 
-// TODO: Handle image resizing
+func invalidUrlErr() *fiber.Error {
+	return fiber.NewError(http.StatusBadRequest, "Invalid url")
+}
 
 func ServeImage(c *fiber.Ctx) error {
 	urlParam := strings.TrimSpace(c.Query("url", ""))
 
 	if urlParam == "" {
-		return fiber.NewError(http.StatusBadRequest, "Invalid url")
+		return invalidUrlErr()
 	}
 
 	parsedUrl, err := url.Parse(urlParam)
 
 	if err != nil {
-		return fiber.NewError(http.StatusBadRequest, "Invalid url")
+		return invalidUrlErr()
 	}
 
 	hostname := parsedUrl.Hostname()
 
 	if !isHostnameAllowed(hostname) {
-		return fiber.NewError(http.StatusBadRequest, "Invalid url")
+		return invalidUrlErr()
 	}
 
 	res, err := http.Get(parsedUrl.String())
 
 	if err != nil {
 		return fiber.NewError(http.StatusInternalServerError, "Server error")
-
 	}
 
-	defer func() {
-		err := res.Body.Close()
-		if err != nil {
-			fmt.Println("Error closing body", err)
-		}
-	}()
+	defer res.Body.Close()
 
-	imgExt := (path.Ext(urlParam))
+	// go doesn't return err if statusCode is != 200
+	if res.StatusCode != http.StatusOK {
+		return fiber.NewError(res.StatusCode, res.Status)
+	}
+
+	imgExt := path.Ext(urlParam)
 
 	if imgExt == "" {
 		imgExt = ".jpeg"
