@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"encoding/base64"
+	"fmt"
 	"io"
 	"net/http"
 	"net/url"
@@ -12,6 +13,8 @@ import (
 )
 
 var allowedHosts = [2]string{"gist.github.com", "gist.githubusercontent.com"}
+
+const WEEK_IN_SECONDS = 3600 * 24 * 7
 
 func isHostnameAllowed(hostname string) bool {
 	for i := 0; i < len(allowedHosts); i++ {
@@ -66,6 +69,7 @@ func ServeImage(c *fiber.Ctx) error {
 	}
 
 	c.Response().Header.Set("Content-Type", "image/"+imgExt[1:])
+	c.Response().Header.Set("Cache-Control", fmt.Sprintf("private, max-age=%d", WEEK_IN_SECONDS))
 
 	decoder := base64.NewDecoder(base64.StdEncoding, res.Body)
 
