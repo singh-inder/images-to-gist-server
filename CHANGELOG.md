@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.0.1](https://github.com/singh-inder/images-to-gist-server/compare/v2.0.0...v2.0.1) (2024-09-30)
+
+### Bug Fixes
+
+- **handlers:** add cache-control header ([80dc3dc](https://github.com/singh-inder/images-to-gist-server/commit/80dc3dc40cb83ed496a7b8605ebb526d08a4515d))
+- **docker-compose:** fix container_name ([e4140bc](https://github.com/singh-inder/images-to-gist-server/commit/e4140bce354655b74c0b8fddba7264b6935354ba))
+
 ## [2.0.0](https://github.com/singh-inder/images-to-gist-server/compare/v1.3.0...v2.0.0) (2024-09-23)
 
 ### ⚠ BREAKING CHANGES
