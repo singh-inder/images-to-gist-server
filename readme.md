@@ -10,7 +10,7 @@ Used by [obsidian-images-to-gist](https://github.com/singh-inder/obsidian-images
   docker run -d -p 5000:5000 ghcr.io/singh-inder/images-to-gist-server:latest
   ```
 
-- Or you can clone the repo, install dependencies and run `npm run dev`. Server has been tested with nodejs version defined in [Dockerfile](Dockerfile).
+- Or you can clone the repo, install dependencies and run `go run main.go`. Server has been tested with `go` version defined in [Dockerfile](Dockerfile).
   By default, server runs on PORT `5000`, but you can override it by creating a `.env` file in the project root and add PORT variable
 
   ```
