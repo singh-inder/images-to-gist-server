@@ -23,7 +23,7 @@ func main() {
 	}
 
 	app := fiber.New()
-	app.Use(helmet.New())
+	app.Use(helmet.New(helmet.Config{CrossOriginResourcePolicy: "cross-origin"}))
 
 	app.Get("/", handlers.ServeImage)
 
