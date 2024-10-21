@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.0.2](https://github.com/singh-inder/images-to-gist-server/compare/v2.0.1...v2.0.2) (2024-10-21)
+
+### Bug Fixes
+
+- update cross origin policy ([4a98eb5](https://github.com/singh-inder/images-to-gist-server/commit/4a98eb5710ca6367f65d1e25ddc35ac90696b1b7))
+
+### Docs
+
+- update readme ([cce8d80](https://github.com/singh-inder/images-to-gist-server/commit/cce8d80cb09e1b679f16e365d5caafe1a92afe7e))
+
 ## [2.0.1](https://github.com/singh-inder/images-to-gist-server/compare/v2.0.0...v2.0.1) (2024-09-30)
 
 ### Bug Fixes
