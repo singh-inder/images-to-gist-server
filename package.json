@@ -1,6 +1,6 @@
 {
   "name": "images-to-gist-server",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "server decodes base64 strings and pipe images to client",
   "author": {
     "name": "Inder Singh",
@@ -19,7 +19,7 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "commit-and-tag-version": "^12.4.4",
-    "prettier": "^3.3.3"
+    "commit-and-tag-version": "^12.5.2",
+    "prettier": "^3.6.2"
   }
 }
